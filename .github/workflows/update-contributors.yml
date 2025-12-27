@@ -1,0 +1,42 @@
+name: Update Contributors
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    types: [closed]
+
+permissions:
+  contents: write
+  pull-requests: read
+
+jobs:
+  update-contributors:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install all-contributors
+        run: npm install -g all-contributors-cli
+
+      - name: Update contributors list
+        run: |
+          # Automatically fetch contributors and update README.md
+          npx all-contributors add $(git log -1 --pretty=format:'%ae' | cut -d'@' -f1) code || echo "No contributor added"
+          npx all-contributors generate
+
+      - name: Commit and push changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add README.md .all-contributorsrc
+          git commit -m "chore: update contributors [skip ci]" || echo "No changes to commit"
+          git push

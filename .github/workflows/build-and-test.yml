@@ -1,0 +1,42 @@
+name: Build And Test
+
+on:
+  push:
+    branches: [main, dev]
+  pull_request:
+    branches: [main, dev]
+
+jobs:
+  build-and-test:
+    name: Build & Test
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: test code (vitest)
+        run: npm run test
+
+      - name: Lint code (biome)
+        run: npm run lint
+
+      - name: Type check
+        run: npm run typecheck
+
+      - name: Build project (tsup)
+        run: npm run build
+
+      - name: Biome check (unsafe apply)
+        run: npm run check
+        continue-on-error: true

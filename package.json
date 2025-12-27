@@ -1,0 +1,97 @@
+{
+	"name": "mauw",
+	"type": "module",
+	"version": "0.1.0",
+	"private": false,
+	"keywords": [
+		"terminal",
+		"colors",
+		"ansi",
+		"cli",
+		"console",
+		"ansi-colors",
+		"terminal-colors",
+		"text-styling",
+		"colorize",
+		"rgb",
+		"hex",
+		"chainable",
+		"chainable",
+		"functional",
+		"unicode",
+		"symbols",
+		"icons",
+		"fallback",
+		"nodejs",
+		"esm",
+		"typescript",
+		"chalk",
+		"kleur",
+		"colorette",
+		"blessed"
+	],
+	"publishConfig": {
+		"access": "public"
+	},
+	"license": "MIT",
+	"homepage": "https://github.com/kkokotero/mauw#readme",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/kkokotero/mauw"
+	},
+	"bugs": {
+		"url": "https://github.com/kkokotero/mauw/issues"
+	},
+	"exports": {
+		"./colors": {
+			"import": "./dist/colors/index.js",
+			"require": "./dist/colors/index.js",
+			"types": "./dist/colors/index.d.ts"
+		},
+		"./characters": {
+			"import": "./dist/characters/index.js",
+			"require": "./dist/characters/index.js",
+			"types": "./dist/characters/index.d.ts"
+		}
+	},
+	"typesVersions": {
+		"*": {
+			"*": [
+				"./dist/*"
+			]
+		}
+	},
+	"sideEffets": false,
+	"files": [
+		"dist/",
+		"README.md",
+		"LICENSE.txt"
+	],
+	"engines": {
+		"node": ">=16"
+	},
+	"scripts": {
+		"build": "tsup",
+		"test": "vitest",
+		"release": "standard-version",
+		"typecheck": "tsc --noEmit",
+		"lint": "biome lint src",
+		"check": "biome check src",
+		"prepublishOnly": "npm run lint && npm run build && npm run typecheck && npm run test"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "^2.2.6",
+		"@types/node": "^24.7.2",
+		"all-contributors-cli": "^6.26.1",
+		"standard-version": "^9.5.0",
+		"tsup": "^8.5.0",
+		"typescript": "^5.9.3",
+		"vitest": "^4.0.16",
+
+		"chalk": "^5.6.2",
+		"colorette": "^2.0.20",
+		"kleur": "^4.1.5",
+    "picocolors": "^1.1.1",
+    "ansi-colors": "^4.1.3"
+	}
+}
