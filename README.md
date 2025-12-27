@@ -127,6 +127,8 @@ console.log(character.checkmark, 'Task completed');
 
 > See the full benchmark suite in the `bench/` directory.
 
+<img src="./misc/performa_bench.png" alt="mauw-bench-performance" height="300" />
+
 mauw is built with performance as a first-class concern.
 Its core focuses on minimizing allocations, avoiding unnecessary string operations, and favoring functional composition over heavy chaining mechanisms.
 
