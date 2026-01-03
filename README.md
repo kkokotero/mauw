@@ -123,6 +123,53 @@ import character from 'mauw/characters';
 console.log(character.checkmark, 'Task completed');
 ```
 
+## Available Symbols (Unicode & ASCII Fallbacks)
+
+This library provides a curated set of **terminal-friendly symbols**, designed to work consistently across environments.
+
+When Unicode is supported, richer symbols are used. Otherwise, clean **ASCII fallbacks** are applied automatically.
+
+---
+
+### Unicode Symbols (Preferred)
+
+> Used when the terminal supports Unicode characters.
+
+<img src="misc/unicode_symbols.png" alt="Unicode symbols preview" />
+
+---
+
+### ASCII Fallback Symbols
+
+> Automatically used in non-Unicode environments (CI, legacy terminals, limited fonts).
+
+<img src="misc/fallback_symbols.png" alt="ASCII fallback symbols preview" />
+
+---
+
+## Spinners
+
+Spinners are animated using the same fallback strategy, ensuring smooth behavior in all environments.
+
+### Unicode Spinners
+
+<img src="misc/unicode_symbols_spinners.gif" alt="Unicode spinners preview" />
+
+---
+
+### ASCII Fallback Spinners
+
+<img src="misc/fallback_symbols_spinners.gif" alt="ASCII fallback spinners preview" />
+
+---
+
+### Notes
+
+* Symbols are **data-only** (no rendering side effects)
+* Fallbacks are deterministic and predictable
+* Designed for **CLIs, logs, and interactive demos**
+* Color is applied **optionally**, not baked into symbols
+
 ## Performance
 
 > See the full benchmark suite in the `bench/` directory.
