@@ -3,6 +3,9 @@
 	"type": "module",
 	"version": "0.1.2",
 	"private": false,
+	"description": "A lightweight, chainable, and functional terminal colors library for Node.js with Unicode character support and graceful fallbacks.",
+	"author": "kkokotero",
+  "sideEffects": false,
 	"keywords": [
 		"terminal",
 		"colors",
