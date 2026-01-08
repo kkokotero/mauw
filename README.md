@@ -1,5 +1,5 @@
 <p align="center" style="background-color: #fff;">
-  <img src="misc/banner.svg" alt="mauw" height="300" />
+  <img src="misc/banner.svg" alt="mauw" />
 </p>
 
 <p align="center">
@@ -81,7 +81,8 @@ import mauw from 'mauw/colors';
 
 console.log(
   mauw.rgb(255, 0, 0)('Red text'),
-  mauw.hex('#00ff99')('Green text')
+  mauw.hex('#00ff99')('Green text'),
+  mauw.blue('Blue text')
 );
 ```
 
@@ -92,7 +93,8 @@ import mauw from 'mauw/colors';
 
 console.log(
   mauw.bgRgb(30, 30, 30)('Dark background'),
-  mauw.bgHex('#1e1e1e')('HEX background')
+  mauw.bgHex('#1e1e1e')('HEX background'),
+  mauw.bgGreen("Green background")
 );
 ```
 
@@ -115,13 +117,76 @@ if (COLORS_ENABLED) {
 }
 ```
 
-### Unicode-safe output
+
+## Unicode-safe output (auto-detect)
+
+Use this mode when you want **the best possible output** without worrying about the environment.
+The library automatically detects Unicode support and selects the optimal character set.
 
 ```ts
 import character from 'mauw/characters';
 
-console.log(character.checkmark, 'Task completed');
+console.log(character.success, 'Build finished');
+console.log(character.warning, 'Low disk space');
+console.log(character.arrowRight, 'Next step');
 ```
+
+✔ Recommended for most use cases
+✔ Safe for CI, SSH, and older terminals
+✔ Works with lazy loading and tree-shaking
+
+---
+
+## Forced fallback output (ASCII-only)
+
+Useful when you need **fully predictable output**, such as:
+
+* plain logs
+* `.txt` files
+* environments without Unicode support (embedded or legacy systems)
+
+```ts
+import character from 'mauw/characters/fallback';
+
+console.log(character.success, 'Tests passed');
+console.log(character.pointerSmall, 'Running lint');
+console.log(character.line.repeat(20));
+```
+
+- No Unicode characters
+- Fully portable
+- Ideal for logs and serialized output
+
+## Forced Unicode output
+
+Use this mode when you **know the environment supports Unicode** and want the richest visual output.
+
+```ts
+import character from 'mauw/characters/unicode';
+
+console.log(character.checkboxOn, 'Feature enabled');
+console.log(character.heart, 'Powered by mauw');
+console.log(character.boxRoundedTopLeft + character.line.repeat(8));
+```
+
+- Rich visual output
+- Perfect for modern CLIs
+- Includes symbols, spinners, and box-drawing characters
+
+---
+
+### Tip
+
+You can mix imports depending on your needs:
+
+```ts
+import base from 'mauw/characters/base';
+import unicode from 'mauw/characters/unicode';
+
+console.log(base.dot, unicode.star, 'Release ready');
+```
+
+This keeps your bundle small while maintaining consistent output.
 
 ## Available Symbols (Unicode & ASCII Fallbacks)
 

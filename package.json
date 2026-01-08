@@ -1,7 +1,7 @@
 {
 	"name": "mauw",
 	"type": "module",
-	"version": "0.1.2",
+	"version": "0.1.3",
 	"private": false,
 	"description": "A lightweight, chainable, and functional terminal colors library for Node.js with Unicode character support and graceful fallbacks.",
 	"author": "kkokotero",
@@ -56,6 +56,16 @@
 			"import": "./dist/characters/index.js",
 			"require": "./dist/characters/index.js",
 			"types": "./dist/characters/index.d.ts"
+		},
+		"./characters/fallback": {
+			"import": "./dist/characters/fallback.js",
+			"require": "./dist/characters/fallback.js",
+			"types": "./dist/characters/fallback.d.ts"
+		},
+		"./characters/unicode": {
+			"import": "./dist/characters/unicode.js",
+			"require": "./dist/characters/unicode.js",
+			"types": "./dist/characters/unicode.d.ts"
 		}
 	},
 	"typesVersions": {
