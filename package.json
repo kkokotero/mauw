@@ -1,11 +1,11 @@
 {
 	"name": "mauw",
 	"type": "module",
-	"version": "0.1.3",
+	"version": "0.1.4",
 	"private": false,
 	"description": "A lightweight, chainable, and functional terminal colors library for Node.js with Unicode character support and graceful fallbacks.",
 	"author": "kkokotero",
-  "sideEffects": false,
+	"sideEffects": false,
 	"keywords": [
 		"terminal",
 		"colors",
@@ -45,7 +45,7 @@
 	"bugs": {
 		"url": "https://github.com/kkokotero/mauw/issues"
 	},
-  "main": "./dist/index.js",
+	"main": "./dist/index.js",
 	"exports": {
 		"./colors": {
 			"import": "./dist/colors/index.js",
