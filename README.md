@@ -290,3 +290,9 @@ MIT © Kkotero
 ## Contributing
 
 Issues and pull requests are welcome.
+
+---
+<p align="center">
+  Built with ❤️ for great developer and user experiences.
+</p>
+
